@@ -82,18 +82,18 @@ const contenedorCartas = document.querySelector(".listadoCartas")
 
 /* Función que recorre el listado de las cartas */
 function recorrerCartas() {
-    
+    contenedorCartas.innerHTML = ""
+    listadoCartas.forEach(
+        (carta) => contenedorCartas.innerHTML += ` <article class="card">
+        <img src=${carta.imagen}>
+        <div class="info">
+          <h2>${carta.nombre}</h2>
+          <p>${carta.descripcion}</p>
+        </div>
+        </article> `
+    )
 }
 
-listadoCartas.forEach(
-    (carta) => contenedorCartas.innerHTML += ` <article class="card">
-    <img src=${carta.imagen}>
-    <div class="info">
-      <h2>${carta.nombre}</h2>
-      <p>${carta.descripcion}</p>
-    </div>
-    </article> `
-)
 function agregarCarta() {
    const nombre = prompt("Nombre")
    const imagen = prompt("Imagen")
@@ -101,7 +101,7 @@ function agregarCarta() {
 
    const carta = {nombre,imagen,descripcion}
 
-   listadoCartas.push(Carta)
+   listadoCartas.push(carta)
 }
 
 
